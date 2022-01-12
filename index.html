@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>SQL Injection Example</title>
+	</head>
+	<body>
+		<h1>Simulating SQL Injection Attacks</h1>
+		<h3>On this site we will be simulating SQL injection attacks</h3>
+		<p>This site is backed by a MySQL database. This basic website provides various options for interacting with the database:</p>
+		<ul>
+			<li>List all items in the "Items" table</li>
+		</ul>
+		
+		<h3>Show Items From DB</h3>
+		<form action="getItems.php">
+			<input type="submit" id="getItems" name="getItems" value="Get Items">
+		</form>
+		<h3>Add Item to DB with a form</h3>
+		<form action="addItem.php" method="post">
+			<label for="name">Name:</label>
+			<input type=text" id="name" name="name"><br><br>
+			<label for="price">Price:</label>
+			<input type=text" id="price" name="price"><br><br>
+			<label for="category">Category:</label>
+			<input type=text" id="category" name="category"><br><br>
+			<input type="submit" id="addItem" name="addItem" value="Add Item">
+		</form>
+		<br><br>
+		<h3>Select an item by name from the database</h3>
+		<p>This form could be vulnerable to an SQL injection attack. Try entering any of the following input:</p>
+		<ul>
+			<li><b>" OR ""="</b></li>
+			<li><b>"; SELECT * FROM users WHERE "" = "</b></li>
+			<li><b>"; DELETE FROM items;"</b></li>
+		</ul>
+		<form action="retrieveItem.php" method="post">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name"><br><br>
+			<input type="submit" id="getItem" name="getItem" value="Get Item">
+		</form>
+	
+	</body>
+</html>
